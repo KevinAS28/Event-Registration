@@ -91,6 +91,75 @@ int main(){
 			}
 		}
 		
+		if (pilihan_menu==3){
+			//Edit Tamu
+			std::cout << "\n\n";
+			//tampilkan semua tamu yang telah terdaftar
+			int index = 0;
+			
+			for (std::string user[3] : users){
+				if (user[0]==""){continue;} //kalo ga ada namanya, skip
+				
+				std::cout << "Nomor tamu: " << index+1 << "\n";
+				for (std::string data: user){
+					std::cout << data << "\n";
+				}
+				std::cout << "\n";
+				index++;
+			}
+			std::cout << "\n\n";
+			
+			int edit_berdasarkan = 1; //jika 1 maka edit berdasarkan angka, jika 2 edit berdasarkan email
+			std::cout << "Anda akan edit tamu berdasarkan: \n1.Angka\n2.Email\nPilihan: ";
+			std::cin >> edit_berdasarkan;
+			
+			if (edit_berdasarkan==1){
+				//dari angka
+				
+				int angka;
+				std::cout << "Angka tamu: ";
+				std::cin >> angka;
+				
+				angka-=1;
+				std::string user[3] = users[angka];
+				
+				
+				std::cout << "Nama \"" << user[0] << "\" akan diedit menjadi: ";
+				std::cin.ignore();
+				std::getline(std::cin, users[angka][0]);
+				
+				std::cout << "Email \"" << users[angka][1] << "\" akan diedit menjadi: ";
+				std::cin >> users[angka][1];
+		
+				std::cout << "Password \"" << users[angka][2] << "\" akan diedit menjadi: ";
+				std::cin >> users[angka][2];
+			}
+			else{
+				//dari email
+				std::string email;
+				std::cout << "Email tamu yang telah terdaftar: ";
+				std::cin >> email;
+				
+				int angka = 0;
+				for (std::string user[3] : users){
+					if (user[1]==email) {
+						break;
+					}
+					angka++;
+				}
+				
+				std::cout << "Nama \"" << users[angka][0] << "\" Akan diedit menjadi: ";
+				std::cin.ignore();
+				std::getline(std::cin, users[angka][0]);
+				
+				std::cout << "Email: ";
+				std::cin >> users[angka][1];
+		
+				std::cout << "Password: ";
+				std::cin >> users[angka][2];				
+			}
+		}
+		
 		if (pilihan_menu==4){
 			break;
 		}
