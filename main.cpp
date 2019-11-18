@@ -161,6 +161,7 @@ int main(){
 		}
 		
 		if (pilihan_menu==4){
+			std::cout << "\n\n\n GOOD BYE :) \n\n\n";
 			break;
 		}
 		
