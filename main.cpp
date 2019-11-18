@@ -9,7 +9,7 @@ std::string username_admin = "ADMIN", password_admin = "NIMDA";
 int max_user = 0; //deklarasi dulu. nanti tanya di input
 std::string nama_app = "Event Organizer";
 std::string welcome = "\nSelamat datang pada aplikasi " + nama_app + "\nUntuk memulai event, silahkan login terlebih dahulu\n";
-std::string menu = "\nMasukan angka pada menu berikut: 1. Registrasi Tamu\n2. Validasi Tamu\n3.Edit Tamu\n4. Exit\n\n";
+std::string menu = "\nMasukan angka pada menu berikut: \n1. Registrasi Tamu\n2. Validasi Tamu\n3.Edit Tamu\n4. Exit\n\n";
 
 void printstr(std::string str){
 	for (char c : str){
@@ -63,6 +63,34 @@ int main(){
 			
 			user_keberapa++;
 		}
+		
+		if (pilihan_menu==2){
+			std::string email, password;
+			
+			std::cout << "Email: ";
+			std::cin >> email;
+	
+			std::cout << "Password: ";
+			std::cin >> password;
+			
+			//cari email, password di users
+			bool ketemu = false;
+			for (std::string user[3] : users){
+				if ((user[1]==email)){
+					ketemu = true;
+					if (user[2]==password){
+						std::cout << "TAMU " << user[0] << " TELAH TERDAFTAR :)\n";
+					}
+					else{
+						std::cout << "SALAH PASSWORD\n";
+					}
+				}
+			}
+			if (!ketemu){
+				std::cout << "TAMU TIDAK TERDAFTAR\n";
+			}
+		}
+		
 		if (pilihan_menu==4){
 			break;
 		}
