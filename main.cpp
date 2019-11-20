@@ -11,13 +11,6 @@ string nama_app = "Event Organizer";
 string welcome = "\nSelamat datang pada aplikasi " + nama_app + "\nUntuk memulai event, silahkan login terlebih dahulu\n";
 string menu = "\nMasukan angka pada menu berikut: \n1. Registrasi Tamu\n2. Validasi Tamu\n3.Edit Tamu\n4. Exit\n\n";
 
-void printstr(string str){
-	for (char c : str){
-		cout << (int)c << ", ";
-		cout << "\n";
-	}
-}
-
 int main(){
     cout << welcome;
     
